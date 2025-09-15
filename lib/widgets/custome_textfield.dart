@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../constants/colors.dart';
 
@@ -11,6 +12,10 @@ class CustomeTextfield extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       controller: controller,
+      keyboardType: TextInputType.numberWithOptions(decimal: true),
+      inputFormatters: [
+        FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*')),
+      ],
       decoration: InputDecoration(
         border: getBorder(),
         enabledBorder: getBorder(color: CustomColor.whiteSecondary),
