@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -15,9 +16,10 @@ class Bmiwidgets {
       child: Container(
         height: 140,
         width: 140,
+
         decoration: BoxDecoration(
           color: isSelected
-              ? Colors.grey.shade700
+              ? Color.fromARGB(255, 18, 14, 42)
               : Color.fromARGB(255, 29, 23, 61),
           borderRadius: BorderRadius.circular(15),
         ),
@@ -94,28 +96,28 @@ class Bmiwidgets {
                 height: 40,
                 width: 40,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: CustomColor.appBar,
                   borderRadius: BorderRadius.circular(25),
                 ),
                 child: IconButton(
                   onPressed: () {
                     deccallback();
                   },
-                  icon: Icon(Icons.remove),
+                  icon: Icon(Icons.remove, color: Colors.white),
                 ),
               ),
               Container(
                 height: 40,
                 width: 40,
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: CustomColor.appBar,
                   borderRadius: BorderRadius.circular(25),
                 ),
                 child: IconButton(
                   onPressed: () {
                     inccallback();
                   },
-                  icon: Icon(Icons.add),
+                  icon: Icon(Icons.add, color: Colors.white),
                 ),
               ),
             ],

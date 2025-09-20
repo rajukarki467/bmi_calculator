@@ -10,4 +10,5 @@ class CustomColor {
   static const Color yellowPimary = Color(0xffffaf29);
   static const Color whitePrimary = Color(0xffeaeaeb);
   static const Color whiteSecondary = Color(0xffc8c9ce);
+  static const Color appBar = Color.fromARGB(255, 18, 14, 42);
 }
