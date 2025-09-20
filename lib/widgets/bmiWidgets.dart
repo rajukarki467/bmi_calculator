@@ -2,20 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class Bmiwidgets {
-  static Widget genderContainer({required Icon icon, required String gender}) {
-    return Container(
-      height: 140,
-      width: 140,
-      decoration: BoxDecoration(
-        color: Color.fromARGB(255, 27, 22, 55),
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          icon,
-          customText(text: gender),
-        ],
+  static Widget genderContainer({
+    required Icon icon,
+    required String gender,
+    required bool isSelected,
+    VoidCallback? callback,
+  }) {
+    return InkWell(
+      onTap: () {
+        callback!();
+      },
+      child: Container(
+        height: 140,
+        width: 140,
+        decoration: BoxDecoration(
+          color: isSelected
+              ? Colors.grey.shade700
+              : Color.fromARGB(255, 29, 23, 61),
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            icon,
+            customText(text: gender),
+          ],
+        ),
       ),
     );
   }
@@ -31,19 +43,50 @@ class Bmiwidgets {
     );
   }
 
-  static Widget customContainer({required String text, required String value}) {
+  static Text customText2({required double text, double? fsi}) {
+    return Text(
+      "${text}",
+      style: TextStyle(
+        fontSize: fsi ?? 22,
+        color: Colors.white24,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+
+  static Text customText1({
+    required String text,
+    required double fsi,
+    required Color color,
+  }) {
+    return Text(
+      text,
+      style: TextStyle(
+        fontSize: fsi,
+        color: color,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+  }
+
+  static Widget customContainer({
+    required String text,
+    required double value,
+    required VoidCallback inccallback,
+    required VoidCallback deccallback,
+  }) {
     return Container(
       height: 140,
       width: 140,
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 27, 22, 55),
+        color: Color.fromARGB(255, 29, 23, 61),
         borderRadius: BorderRadius.circular(15),
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           customText(text: text, fsi: 16),
-          customText(text: value, fsi: 24),
+          customText2(text: value, fsi: 24),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -54,7 +97,12 @@ class Bmiwidgets {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(25),
                 ),
-                child: IconButton(onPressed: () {}, icon: Icon(Icons.remove)),
+                child: IconButton(
+                  onPressed: () {
+                    deccallback();
+                  },
+                  icon: Icon(Icons.remove),
+                ),
               ),
               Container(
                 height: 40,
@@ -63,7 +111,12 @@ class Bmiwidgets {
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(25),
                 ),
-                child: IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+                child: IconButton(
+                  onPressed: () {
+                    inccallback();
+                  },
+                  icon: Icon(Icons.add),
+                ),
               ),
             ],
           ),
