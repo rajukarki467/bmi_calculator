@@ -1,5 +1,6 @@
-import 'package:bmi_calculator/pages/home_page.dart';
-import 'package:bmi_calculator/utils/bmi_helper.dart';
+// import 'package:bmi_calculator/pages/home_page.dart';
+// import 'package:bmi_calculator/utils/bmi_helper.dart';
+import 'package:bmi_calculator/pages/homebmiscreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'BMI - Calculator',
       theme: ThemeData.dark(),
-      home: const HomePage(),
+      home: const Homebmiscreen(),
     );
   }
 }
