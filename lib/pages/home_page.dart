@@ -32,7 +32,6 @@ class _HomePageState extends State<HomePage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.male),
                 // CustomText(textMessage: "Calculate Your BMI ", fontSize: 18),
                 // const SizedBox(height: 90),
                 CustomeTextfield(
